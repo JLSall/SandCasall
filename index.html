@@ -1,132 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Space Background with Shooting Stars</title>
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
-    
-    body {
-      background: linear-gradient(220deg, rgba(2, 4, 28), rgba(14, 16, 48));
+    <title>Animated Stars</title>
+    <style>
+        body {
+      background: linear-gradient(220deg, rgba(36, 22, 69), rgba(14, 26, 48));
       overflow: hidden;
     }
-    
-    .shooting-star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      opacity: 0.8;
-    }
-    
-    #logo {
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            animation-name: moveStar;
+            animation-duration: var(--duration);
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+        }
+        
+
+        @keyframes moveStar {
+            0% {
+                transform: translate(0, 0);
+                opacity: 0.8
+            }
+            100% {
+                transform: translate(750px, 600px);
+                opacity: 0
+            }
+        }
+        
+        #logo {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       max-width: 80%;
-    }
-  </style>
-  <script>
-    function getRandomPosition() {
-      var x = Math.floor(Math.random() * window.innerWidth); // Random x-coordinate within the first half of the window width
-      var y = Math.floor(Math.random() * window.innerHeight); // Random y-coordinate within the first half of the window height
-      return [x, y];
-    }
-    
-    
-    function createShootingStar() {
-      var shootingStar = document.createElement("div");
-      shootingStar.classList.add("shooting-star");
-      
-      var startPoint = getRandomPosition();
-      
-      var toX = startPoint[0] + 1000;
-      var toY = startPoint[1] + 1000;
-      
-      shootingStar.style.transform = "translate(" + startPoint[0] + "px, " + startPoint[1] + "px)";
-      shootingStar.style.animation = "shooting-star-animation " + getRandomDuration() + "ms linear infinite";
-      shootingStar.style.animationDelay = "-" + getRandomDuration() + "ms";
-      shootingStar.style.animationName = `
-        @keyframes shooting-star-animation {
-          from {
-            transform: translate(${startPoint[0]}px, ${startPoint[1]}px);
-            opacity: 0.8;
-          }
-          to {
-            transform: translate(${toX}px, ${toY}px);
-            opacity: 0;
-          }
-        }
-      `;
-      
-      document.body.appendChild(shootingStar);
-    }
-    
-    function getRandomDuration() {
-      return Math.floor(Math.random() * 4000) + 2000; // Random duration between 2 and 5 seconds
-    }
-    
-    
-    document.addEventListener("DOMContentLoaded", function() {
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-       createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-      createShootingStar();
-    });
-  </script>
+    </style>
 </head>
 <body>
-  <img id="logo" src="images/logo.png" alt="Logo">
+    <script>
+        function getRandomDuration() {
+            return Math.random() * 7000 + 2000; // Random duration between 1000ms and 5000ms
+        }
+
+        function getRandomPosition() {
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            const xPos = Math.floor(Math.random() * (screenWidth - 2)) + 1 -400; // Random X position between 1 and (screenWidth - 2)
+            const yPos = Math.floor(Math.random() * (screenHeight - 2)) + 1 -300; // Random Y position between 1 and (screenHeight - 2)
+            return { x: xPos, y: yPos };
+        }
+
+        function createStar() {
+            const star = document.createElement("div");
+            star.className = "star";
+            star.style.setProperty("--duration", `${getRandomDuration()}ms`);
+
+            const position = getRandomPosition();
+            star.style.left = position.x + "px";
+            star.style.top = position.y + "px";
+
+            document.body.appendChild(star);
+        }
+
+        for (let i = 0; i < 200; i++) {
+            createStar();
+        }
+    </script>
+    <img id="logo" src="images/logo.png" alt="Logo">
+    
+    
 </body>
 </html>
-
-
