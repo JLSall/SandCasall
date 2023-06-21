@@ -11,7 +11,7 @@
     }
     
     body {
-      background: linear-gradient(220deg, black, rgba(14, 16, 48));
+      background: linear-gradient(220deg, rgba(2, 4, 28), rgba(14, 16, 48));
       overflow: hidden;
     }
     
@@ -33,28 +33,36 @@
   </style>
   <script>
     function getRandomPosition() {
-      var x = Math.floor(Math.random() * window.innerWidth / 2); // Random x-coordinate within the first half of the window width
-      var y = Math.floor(Math.random() * window.innerHeight / 2); // Random y-coordinate within the first half of the window height
+      var x = Math.floor(Math.random() * window.innerWidth); // Random x-coordinate within the first half of the window width
+      var y = Math.floor(Math.random() * window.innerHeight); // Random y-coordinate within the first half of the window height
       return [x, y];
     }
     
-    function getRandomEndPoint() {
-      var x = Math.floor(Math.random() * window.innerWidth); // Random x-coordinate within the window width
-      var y = Math.floor(Math.random() * window.innerHeight); // Random y-coordinate within the window height
-      return [x, y];
-    }
     
     function createShootingStar() {
       var shootingStar = document.createElement("div");
       shootingStar.classList.add("shooting-star");
       
       var startPoint = getRandomPosition();
-      var endPoint = getRandomEndPoint();
+      
+      var toX = startPoint[0] + 1000;
+      var toY = startPoint[1] + 1000;
       
       shootingStar.style.transform = "translate(" + startPoint[0] + "px, " + startPoint[1] + "px)";
       shootingStar.style.animation = "shooting-star-animation " + getRandomDuration() + "ms linear infinite";
       shootingStar.style.animationDelay = "-" + getRandomDuration() + "ms";
-      shootingStar.style.animationName = getKeyframes(startPoint, endPoint);
+      shootingStar.style.animationName = `
+        @keyframes shooting-star-animation {
+          from {
+            transform: translate(${startPoint[0]}px, ${startPoint[1]}px);
+            opacity: 0.8;
+          }
+          to {
+            transform: translate(${toX}px, ${toY}px);
+            opacity: 0;
+          }
+        }
+      `;
       
       document.body.appendChild(shootingStar);
     }
@@ -63,25 +71,48 @@
       return Math.floor(Math.random() * 4000) + 2000; // Random duration between 2 and 5 seconds
     }
     
-    function getKeyframes(startPoint, endPoint) {
-      var deltaX = endPoint[0] - startPoint[0];
-      var deltaY = endPoint[1] - startPoint[1];
-      
-      return `
-        @keyframes shooting-star-animation {
-          from {
-            transform: translate(${startPoint[0]}px, ${startPoint[1]}px);
-            opacity: 0.8;
-          }
-          to {
-            transform: translate(${endPoint[0]}px, ${endPoint[1]}px);
-            opacity: 0;
-          }
-        }
-      `;
-    }
     
     document.addEventListener("DOMContentLoaded", function() {
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+       createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
+      createShootingStar();
       createShootingStar();
       createShootingStar();
       createShootingStar();
@@ -97,3 +128,5 @@
   <img id="logo" src="images/logo.png" alt="Logo">
 </body>
 </html>
+
+
