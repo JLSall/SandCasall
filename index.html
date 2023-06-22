@@ -4,6 +4,48 @@
     <title>Sand Cassall</title>
     <link rel="shortcut icon" type="image/png" href="images/logo.png">
     <style>
+
+    .navbar {
+  background-color: rgba(8, 16, 32, 0);
+  color: white;
+  position: fixed;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  height: 40px; /* Adjust the height as needed */
+  transition: height 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Added to center the menu options horizontally */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+  display: block;
+  font-size: 15px;
+  font-family: monospace;
+  color: pink;
+  text-align: center;
+  padding: 15px 50px;
+  text-decoration: none;
+  transition: font-size .4s, background-color 0.3s, color 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.navbar:hover {
+  background-color: rgba(8, 16, 32, 0);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0);
+}
+
+.navbar:hover a {
+  font-size: 20px; /* Adjust the font size as needed */
+}
+    
         body {
       background: linear-gradient(220deg, rgba(36, 22, 69), rgba(14, 26, 48));
       overflow: hidden;
@@ -73,6 +115,12 @@
     </script>
     <img id="logo" src="images/logo.png" alt="Logo">
     
+    <div class="navbar">
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+</div>
     
 </body>
 </html>
