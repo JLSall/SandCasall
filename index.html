@@ -5,7 +5,14 @@
     <link rel="shortcut icon" type="image/png" href="images/logo.png">
     <style>
 
-    .navbar {
+   body {
+  background: linear-gradient(220deg, rgba(36, 22, 69), rgba(14, 26, 48));
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
   background-color: rgba(8, 16, 32, 0);
   color: white;
   position: fixed;
@@ -23,17 +30,17 @@
 
 .navbar a {
   display: block;
-  font-size: 15px;
+  font-size: 1.25vw; /* Set the font size as a percentage of the viewport width */
   font-family: monospace;
   color: pink;
   text-align: center;
-  padding: 15px 50px;
+  padding: .9vw 4vw;
   text-decoration: none;
-  transition: font-size .4s, background-color 0.3s, color 0.3s;
+  transition: font-size 0.4s, background-color 0.3s, color 0.3s;
 }
 
 .navbar a:hover {
-  background-color: #555;
+  background-color: rgba(8, 16, 32, .65);
   color: #fff;
 }
 
@@ -43,7 +50,14 @@
 }
 
 .navbar:hover a {
-  font-size: 20px; /* Adjust the font size as needed */
+  font-size: 1.75vw; /* Set the increased font size for hover state */
+}
+
+.page-content {
+  padding: 40px;
+  color: white;
+  text-align: center;
+  margin-top: 80px; /* Adjust the margin-top value to provide space below the navbar */
 }
     
         body {
