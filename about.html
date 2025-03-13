@@ -9,15 +9,15 @@
   background-color: rgba(8, 16, 32, 0);
   color: white;
   position: fixed;
-  top: 8%; /* Moved higher on the page */
+  top: 8%;
   left: 0;
   width: 100%;
   z-index: 999;
-  height: 40px;
+  height: 40px; /* Adjust the height as needed */
   transition: height 0.3s, box-shadow 0.3s;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Added to center the menu options horizontally */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);
 }
 
@@ -78,6 +78,19 @@ body {
     }
 }
 
+#logo-small {
+  position: fixed;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  z-index: 1000;
+  border: 2px solid rgba(255, 192, 203, 0.6);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
 @media only screen and (orientation: portrait) {
   .navbar a {
   display: block;
@@ -98,7 +111,7 @@ body {
 .about-container {
   width: 80%;
   max-width: 900px;
-  margin: 150px auto 50px;
+  margin: 180px auto 50px;
   padding: 20px;
   background: rgba(8, 16, 32, 0.7);
   border-radius: 15px;
@@ -162,7 +175,7 @@ body {
   flex-wrap: wrap;
   margin-top: 20px;
   gap: 20px;
-  justify-content: center; /* Center the items */
+  justify-content: center;
 }
 
 .interest-item {
@@ -184,14 +197,6 @@ body {
 .interest-icon {
   font-size: 2rem;
   margin-bottom: 8px;
-}
-
-.random-fact {
-  background: rgba(255, 192, 203, 0.15);
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 30px;
-  font-style: italic;
 }
 
 /* Fun animation for headings */
@@ -262,6 +267,8 @@ h2:hover::after {
             createStar();
         }
     </script>
+    
+    <img id="logo-small" src="images/logo.png" alt="Logo">
     
     <div class="navbar">
       <a href="index.html">Home</a>
